@@ -11,6 +11,7 @@ import (
 	clientv3 "go.etcd.io/etcd/client/v3"
 )
 
+// Client 为 WaCache 的客户端
 type Client struct {
 	addr        string // name of remote server, e.g. ip:port
 	serviceName string // name of service, e.g. geek-cache

@@ -21,6 +21,7 @@ const (
 	defaultAddr        = "127.0.0.1:7654"
 )
 
+// Server 为 WaCache的服务端
 type Server struct {
 	pb.UnimplementedGroupCacheServer
 	self       string     // self ip
