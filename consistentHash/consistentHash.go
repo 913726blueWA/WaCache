@@ -6,6 +6,10 @@ import (
 	"strconv"
 )
 
+const (
+	DefaultReplicas = 50
+)
+
 // Hash maps bytes to uint32
 type Hash func(data []byte) uint32
 

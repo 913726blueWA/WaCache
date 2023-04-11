@@ -40,7 +40,7 @@ func NewClientPicker(self string, opts ...PickerOptions) *ClientPicker {
 		serviceName: defaultServiceName,
 		clients:     make(map[string]*Client),
 		mu:          sync.RWMutex{},
-		consHash:    consistentHash.New(defaultReplicas, nil),
+		consHash:    consistentHash.New(consistentHash.DefaultReplicas, nil),
 	}
 	picker.mu.Lock()
 	defer picker.mu.Unlock()
@@ -122,7 +122,7 @@ func PickerServiceName(serviceName string) PickerOptions {
 
 func ConsHashOptions(opts ...consistentHash.ConsOptions) PickerOptions {
 	return func(picker *ClientPicker) {
-		picker.consHash = consistentHash.New(defaultReplicas, nil)
+		picker.consHash = consistentHash.New(consistentHash.DefaultReplicas, nil)
 	}
 }
 
