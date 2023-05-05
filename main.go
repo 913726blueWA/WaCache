@@ -3,15 +3,12 @@ package main
 import (
 	"WaCache/waCache"
 	"errors"
-	"flag"
 	"log"
 	"strconv"
 )
 
 func main() {
-	var port int
-	flag.IntVar(&port, "port", 8001, "Geecache server port")
-	flag.Parse()
+	var port = 8001
 	// mock database or other dataSource
 	var mysql = map[string]string{
 		"Tom":  "630",
@@ -29,7 +26,7 @@ func main() {
 			return nil, errors.New("not hit")
 		}))
 
-	var addr string = "127.0.0.1:" + strconv.Itoa(port)
+	var addr = "127.0.0.1:" + strconv.Itoa(port)
 
 	server, err := waCache.NewServer(addr)
 	if err != nil {

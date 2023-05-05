@@ -121,6 +121,7 @@ func (g *Group) getLocally(key string) (ByteView, error) {
 func (g *Group) populateCache(key string, value ByteView) {
 	g.mainCache.add(key, value)
 }
+
 func (g *Group) Delete(key string) (bool, error) {
 	if key == "" {
 		return true, fmt.Errorf("key is required")
